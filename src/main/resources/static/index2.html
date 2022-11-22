@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h1>Hello, world!</h1>
+    <h1>Just an empty page here... workin' on it</h1>
     <form>
         <div class="form-row">
             <div class="col">
@@ -40,35 +40,7 @@
     </table>
 </div>
 
-<script type="text/javascript">
-    const observeContracts = () => {
-        const contractId = document.getElementById('contracts-list').value;
-        const tBody = document.getElementById('table-body');
 
-        var source =new EventSource("/contractsController/" + contractId);
-        alert('below source contractId ' + contractId);
-        source.onmessage = (evt) => {
-            let contract = JSON.parse(evt.data);
-
-            let row = `
-                <th scope="row">${contract.id}</th>
-				      <td>${contract.contractId}</td>
-				      <td>${contract.originalAmount}</td>
-				      <td>${contract.amountDue}</td>
-				      <td>${contract.interestPaid}</td>
-				      <td>${contract.clients}</td>
-				      `;
-
-				      let tr = document.createElement('tr');
-				        tr.innerHTML = row;
-				        tBody.appendChild(tr);
-        };
-        // above is callback
-    }
-
-    document.getElementById('notify').addEventListener('click', observeContracts);
-
-</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
